@@ -6,6 +6,7 @@ const fs = require("fs"); //文件读写
 const path = require("path"); //路径配置
 const config = require('./config')
 const schedule = require("node-schedule"); //定时器任务库
+const process = require('process')
 
 
 //配置项
@@ -179,7 +180,7 @@ rule.dayOfWeek = [0, new schedule.Range(1, 6)];
 rule.hour = EmailHour;
 rule.minute = EmialMinminute;
 console.log('NodeMail: 开始等待目标时刻...')
-
+console.log(process.env.NODE_ENV)
 if (process.env.NODE_ENV === 'dev') {
     // 线下发送给自己
     setTimeout(() => {

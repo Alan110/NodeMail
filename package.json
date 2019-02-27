@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "NODE_ENV=dev && node main.js",
-        "start": "NODE_ENV=prod && node main.js"
+        "dev": "NODE_ENV=dev node main.js",
+        "start": "NODE_ENV=prod node main.js"
     },
     "author": "",
     "license": "ISC",
