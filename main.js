@@ -179,10 +179,16 @@ rule.dayOfWeek = [0, new schedule.Range(1, 6)];
 rule.hour = EmailHour;
 rule.minute = EmialMinminute;
 console.log('NodeMail: 开始等待目标时刻...')
-// let j = schedule.scheduleJob(rule, function () {
-//     console.log("执行任务");
-//     getAllDataAndSendMail();
-// });
-setTimeout(() => {
-    getAllDataAndSendMail();
-}, 2000)
+
+if (process.env.NODE_ENV === 'dev') {
+    // 线下发送给自己
+    setTimeout(() => {
+        getAllDataAndSendMail();
+    }, 2000)
+} else {
+    // 线上开启定时任务
+    let j = schedule.scheduleJob(rule, function () {
+        console.log("执行任务");
+        getAllDataAndSendMail();
+    });
+}
