@@ -307,33 +307,25 @@ function sendMail(HtmlData) {
 如果你觉得这封邮件的内容适合你发送的对象，可以按照以下步骤，改少量参数即可运行程序；
 
 1. git clone https://github.com/Vincedream/NodeMail
-2. 打开main.js，修改配置项
+2. 在根目录新建config.js，修改配置项
 
 ``` javascript
-//纪念日
-let startDay = "2016/6/24";
+module.exports = {
+    startDay: "2018/7/13",//纪念日
+    local: "chongqing",//当地拼音,需要在下面的墨迹天气url确认
+    EmianService: 'qq',//发送者邮箱厂家
+    EamilAuth: {//发送者邮箱账户SMTP授权码
+        user: "306880673@qq.com",
+        pass: "xxxxxx"
+    },
+    EmailFrom: '"李佳隆" 306880673@qq.com',//发送者昵称与邮箱地址
+    EmailTo: "306880673@qq.com",//接收者邮箱地
+    EmailSubject: "一封暖暖的小邮件",//邮件主题
 
-//当地拼音,需要在下面的墨迹天气url确认
-const local = "xiangtan";
+    EmailHour: 5,//每日发送时间
+    EmialMinminute: 20
 
-//发送者邮箱厂家
-let EmianService = "163";
-//发送者邮箱账户SMTP授权码
-let EamilAuth = {
-  user: "xxxxxx@163.com",
-  pass: "xxxxxx"
-};
-//发送者昵称与邮箱地址
-let EmailFrom = '"name" <xxxxxx@163.com>';
-
-//接收者邮箱地
-let EmailTo = "like@vince.studio";
-//邮件主题
-let EmailSubject = "一封暖暖的小邮件";
-
-//每日发送时间
-let EmailHour = 6;
-let EmialMinminute= 30;
+}
 ```
 3. 终端输入`npm install`安装依赖，再输入`node main.js`，运行脚本，当然你的电脑不可能不休眠，建议你部署到你的云服务器上运行。
 
