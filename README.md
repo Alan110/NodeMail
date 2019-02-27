@@ -317,7 +317,7 @@ let config = {
     EmianService: 'qq',//发送者邮箱厂家
     EamilAuth: {//发送者邮箱账户SMTP授权码
         user: "306880673@qq.com",
-        pass: "ouqlvufniribbjbg"
+        pass: "xxxx"
     },
     EmailFrom: '"李佳隆" 306880673@qq.com',//发送者昵称与邮箱地址
     EmailTo: "306880673@qq.com",//接收者邮箱地
@@ -325,7 +325,6 @@ let config = {
 
     EmailHour: 5,//每日发送时间
     EmialMinminute: 20
-
 }
 
 if (process.env.NODE_ENV === 'prod') {
