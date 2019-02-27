@@ -7,13 +7,14 @@ const path = require("path"); //路径配置
 const config = require('./config')
 const schedule = require("node-schedule"); //定时器任务库
 
+
 //配置项
 let { startDay, local, EmianService, EamilAuth, EmailFrom, EmailTo, EmailSubject, EmailHour, EmialMinminute } = config
 
 
 // 爬取数据的url
 const OneUrl = "http://wufazhuce.com/";
-const WeatherUrl = "https://tianqi.moji.com/weather/china/zhejiang/" + local;
+const WeatherUrl = `https://tianqi.moji.com/weather/china/${local}/${local}`;
 
 
 // 获取ONE内容

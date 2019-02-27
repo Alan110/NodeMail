@@ -310,20 +310,31 @@ function sendMail(HtmlData) {
 2. 在根目录新建config.js，修改配置项
 
 ``` javascript
-module.exports = {
+
+let config = {
     startDay: "2018/7/13",//纪念日
     local: "chongqing",//当地拼音,需要在下面的墨迹天气url确认
     EmianService: 'qq',//发送者邮箱厂家
     EamilAuth: {//发送者邮箱账户SMTP授权码
         user: "306880673@qq.com",
-        pass: "xxxxxx"
+        pass: "ouqlvufniribbjbg"
     },
     EmailFrom: '"李佳隆" 306880673@qq.com',//发送者昵称与邮箱地址
     EmailTo: "306880673@qq.com",//接收者邮箱地
-    EmailSubject: "一封暖暖的小邮件",//邮件主题
+    EmailSubject: "李先生为您温馨提示",//邮件主题
 
     EmailHour: 5,//每日发送时间
     EmialMinminute: 20
+
+}
+
+if (process.env.NODE_ENV === 'prod') {
+    _.merge(config, {
+        EmailTo: '1016118911@qq.com'
+    })
+}
+
+module.exports = config
 
 }
 ```
